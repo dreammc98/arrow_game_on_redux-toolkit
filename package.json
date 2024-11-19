@@ -1,5 +1,6 @@
 {
   "name": "arrow_game_on_redux-toolkit",
+  "homepage": "https://dreammc98.github.io/arrow_game_on_redux-toolkit",
   "private": true,
   "version": "0.0.0",
   "type": "module",
@@ -7,6 +8,8 @@
     "dev": "vite",
     "start": "vite",
     "build": "tsc && vite build",
+    "predeploy": "npm run build",
+    "deploy": "mkdir build && gh-pages -d dist",
     "preview": "vite preview",
     "test": "vitest run",
     "format": "prettier --write .",
@@ -16,6 +19,7 @@
   },
   "dependencies": {
     "@reduxjs/toolkit": "^2.0.1",
+    "gh-pages": "^6.2.0",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "react-redux": "^9.1.0"
