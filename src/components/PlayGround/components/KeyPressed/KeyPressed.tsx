@@ -3,6 +3,10 @@ import { useAppDispatch, useAppSelector } from "../../../../app/hooks"
 import { TPressedKey, setPressedKey } from "../../store/slices"
 import { ARR_ARROW_CODES } from "../constants"
 import hourGlass from "../../../../assets/images/hourGlass.svg"
+import { StyledHeading } from "../../../UI/StyledHeading/StyledHeading"
+import { StyledSpan } from "../../../UI/StyledSpan/StyledSpan"
+
+import s from "./keyPressed.module.css"
 
 export const KeyPressed = () => {
   const dispatch = useAppDispatch()
@@ -28,7 +32,13 @@ export const KeyPressed = () => {
 
   return (
     <div>
-      {currentKey ? currentKey : <img src={hourGlass} alt="hourglass" />}
+      <StyledHeading title="Key pressed" />
+      <StyledSpan
+        text={'Press the key corresponding to the key in "Random keys"'}
+      />
+      <div className={s.icon}>
+        {currentKey ? currentKey : <img src={hourGlass} alt="hourglass" />}
+      </div>
     </div>
   )
 }

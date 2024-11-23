@@ -4,8 +4,11 @@ import { setCurrentStep, setIsTimerActive, setSteps } from "./store/slices"
 import { Controls } from "./components/Controls/Controls"
 import { RandomKeys } from "./components/RandomKeys/RandomKeys"
 import { KeyPressed } from "./components/KeyPressed/KeyPressed"
-import { Score } from "./Score/Score"
-import { Modal } from "./components/Modal/Modal"
+import { Score } from "./components/Score/Score"
+import { ModalM } from "./components/Modal/Modal"
+import { Description } from "./components/Description/Description"
+
+import s from "./playground.module.css"
 
 export const Playground = () => {
   const currentStep = useAppSelector(state => state.playground.currentStep)
@@ -34,16 +37,21 @@ export const Playground = () => {
   }, [isTimerActive, isVictory])
 
   return (
-    <div>
-      <RandomKeys />
-      {currentStep}
-      <Controls isTimerActive={isTimerActive} />
-      {isTimerActive && <KeyPressed />}
-      <Score />
-      {isVictory && <Modal description={isVictory} />}
+    <div className={s.container}>
+      <div className={s.wrapper}>
+        <div>
+          <RandomKeys />
+          <KeyPressed />
+        </div>
+        <div>
+          <Score />
+        </div>
+      </div>
+      <div className={s.wrapper}>
+        <Description />
+        <Controls isTimerActive={isTimerActive} />
+      </div>
+      {isVictory && <ModalM description={isVictory} />}
     </div>
   )
 }
-
-// нужно продумать где будет находиться логика выигрыша или проигрыша. прописать логику и пропсы для модалки под логику
-// 1:41:43

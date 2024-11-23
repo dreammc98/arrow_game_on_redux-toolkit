@@ -1,5 +1,6 @@
 import { useAppSelector } from "../../../../../../app/hooks"
 import { PlaygroundSteps } from "../../../../store/slices"
+import parentS from "../../randomKeys.module.css"
 import s from "./RandomArrows.module.css"
 
 export const RandomArrows = () => {
@@ -11,14 +12,17 @@ export const RandomArrows = () => {
     } else if (el.comparison === false) {
       return s.iconUnsuccess
     } else {
-      return s.icon
+      return ""
     }
   }
 
   return (
     <>
       {steps.map((el, index) => (
-        <span className={`${s.arrow} ${getStylesRandomArrows(el)}`} key={index}>
+        <span
+          className={`${parentS.icon} ${getStylesRandomArrows(el)}`}
+          key={index}
+        >
           {el.currentValue}
         </span>
       ))}

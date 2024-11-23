@@ -1,0 +1,14 @@
+.chipErrors {
+  border-color: red !important;
+  color: red !important;
+  font-size: 15px !important;
+}
+.chipSuccessful {
+  border-color: green !important;
+  color: green !important;
+  font-size: 15px !important;
+}
+
+.count {
+  font-weight: 600;
+}

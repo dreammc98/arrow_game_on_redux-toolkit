@@ -1,5 +1,9 @@
 import { useAppDispatch } from "../../../../app/hooks"
+import { Button } from "../../../UI/Button/Button"
 import { setIsTimerActive } from "../../store/slices"
+import { PlayArrow, Pause } from "@mui/icons-material"
+
+import s from "./Controls.module.css"
 
 type Props = {
   isTimerActive: boolean
@@ -14,12 +18,23 @@ export const Controls = ({ isTimerActive }: Props) => {
 
   return (
     <div>
-      <button onClick={switchTimer} disabled={isTimerActive}>
+      <Button
+        onClick={switchTimer}
+        disabled={isTimerActive}
+        endIcon={<PlayArrow />}
+        style={{ marginRight: "10px" }}
+      >
         Start
-      </button>
-      <button onClick={switchTimer} disabled={!isTimerActive}>
+      </Button>
+      <Button
+        onClick={switchTimer}
+        disabled={!isTimerActive}
+        endIcon={<Pause />}
+      >
         Pause
-      </button>
+      </Button>
     </div>
   )
 }
+
+//20:14
