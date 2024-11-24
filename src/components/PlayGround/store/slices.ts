@@ -2,7 +2,7 @@ import { createSlice, PayloadAction } from "@reduxjs/toolkit"
 import { ARR_ARROW_CODES, MAP_ARROW_CODES } from "../components/constants"
 import { TMapArrowCodes } from "../components/types"
 
-const initialState: PlaygroundState = {
+export const initialState: PlaygroundState = {
   currentStep: 0,
   steps: [],
   isTimerActive: false,
@@ -21,6 +21,7 @@ export const playgroundSlice = createSlice({
     setSteps(state) {
       const randomKeys = Math.floor(Math.random() * ARR_ARROW_CODES.length)
       const arrow = ARR_ARROW_CODES[randomKeys] as keyof TMapArrowCodes
+
       state.steps.push({
         currentValue: MAP_ARROW_CODES[arrow],
         currentKey: null,
